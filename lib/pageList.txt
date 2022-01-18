@@ -1,0 +1,9 @@
+void main() => runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.blue,
+        accentColor: Colors.orange),
+    home: MyApp(),
+    )
+))

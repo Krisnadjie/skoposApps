@@ -1,68 +1,114 @@
+import 'dart:ui';
+import 'package:dashboard_flutter_01/login.dart';
+import 'package:dashboard_flutter_01/pageList.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'griddashboard.dart';
-void main() => runApp(MaterialApp(home: Home()));
+//import 'package:login_signup_screen/home.dart';
+//import 'package:login_signup_screen/login.dart';
+import 'package:dashboard_flutter_01/signup.dart';
+import 'package:dashboard_flutter_01/pageHome.dart';
 
-class Home extends StatefulWidget {
-  @override
-  HomeState createState() => new HomeState();
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: HomePage(),
+  ));
 }
 
-class HomeState extends State<Home> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff392850),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 110,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Johny s Family",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold)),
+      body: SafeArea(
+        child: Container(
+          // we will give media query height
+          // double.infinity make it big as my parent allows
+          // while MediaQuery make it big as per the screen
+
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          child: Column(
+            // even space distribution
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Text(
+                    "Selamat Datang",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
                     ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      "Home",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                              color: Color(0xffa29aac),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  alignment: Alignment.topCenter,
-                  icon: Image.asset(
-                    "assets/notification.png",
-                    width: 24,
                   ),
-                  onPressed: () {},
-                )
-              ],
-            ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Selalu Ingat Tujuanmu! ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 15,
+                    ),
+                  )
+                ],
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 3,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/welcome.png"))),
+              ),
+              Column(
+                children: <Widget>[
+                  // the login button
+
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    // defining the shape
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Text(
+                      "Login",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    ),
+                  ),
+
+                  // creating the signup button
+                  SizedBox(height: 20),
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignupPage()));
+                    },
+                    color: Color(0xff27DEBF),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18),
+                    ),
+                  )
+                ],
+              )
+            ],
           ),
-          SizedBox(
-            height: 40,
-          ),
-         GridDashboard()
-        ],
+        ),
       ),
     );
   }

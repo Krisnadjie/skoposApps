@@ -1,49 +1,49 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 = new Items(
-      title: "Calendar",
-      subtitle: "March, Wednesday",
-      event: "3 Events",
-      img: "assets/calendar.png");
+      title: "What Will You Do",
+      subtitle: "Apa yang akan kamu lakukan",
+      event: "Kerjakan",
+      img: "assets/calendar.png"
+      );
 
   Items item2 = new Items(
-    title: "Groceries",
-    subtitle: "Bocali, Apple",
-    event: "4 Items",
+    title: "What is Your Goals",
+    subtitle: "Apa tujuanmu",
+    event: "Berikan Target",
     img: "assets/food.png",
   );
   Items item3 = new Items(
-    title: "Locations",
-    subtitle: "Lucy Mao going to Office",
+    title: "Your Plan Today",
+    subtitle: "Tetapkan Target",
     event: "",
     img: "assets/map.png",
   );
   Items item4 = new Items(
-    title: "Activity",
-    subtitle: "Rose favirited your Post",
+    title: "Your Routines",
+    subtitle: "Apa Kegiatanmu",
     event: "",
     img: "assets/festival.png",
   );
   Items item5 = new Items(
-    title: "To do",
-    subtitle: "Homework, Design",
+    title: "Let's Make Better",
+    subtitle: "Hari Ini Lebih Baik",
     event: "4 Items",
     img: "assets/todo.png",
   );
   Items item6 = new Items(
-    title: "Settings",
-    subtitle: "",
-    event: "2 Items",
+    title: "Make Something",
+    subtitle: "Apa yang Ingin Kamu Ciptakan",
+    event: "",
     img: "assets/setting.png",
   );
 
   @override
   Widget build(BuildContext context) {
     List<Items> myList = [item1, item2, item3, item4, item5, item6];
-    var color = 0xff453658;
+    var color = 0xff27DEBF;
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,
